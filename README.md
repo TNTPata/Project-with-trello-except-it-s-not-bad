@@ -1,2 +1,2 @@
-# Project-with-trello-except-it-s-not-bad
+# Project with trello except it's not bad
 School project
