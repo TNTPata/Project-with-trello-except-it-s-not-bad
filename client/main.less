@@ -1,4 +1,49 @@
-body {
-  padding: 10px;
-  font-family: sans-serif;
+html,
+body,
+#__blaze-root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
 }
+
+div#wrapper {
+  font-family: sans-serif;
+  
+  width: 100%;
+  height: 100%;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div#wrapper.nighttime {
+  background-color: black;
+}
+
+div#wrapper.morning {
+  background-color: yellow;
+}
+
+div#wrapper.daytime {
+  background-color: lightblue;
+}
+
+div#wrapper.evening {
+  background-color: darkgrey;
+}
+
+// Rules for 1920x1080 resolution
+#clock {
+  border: solid 1px red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  font-size: 170px;
+  text-align: center;
+  width: 900px;
+}
+
+// Rules for mobile screens
