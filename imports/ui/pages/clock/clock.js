@@ -1,4 +1,4 @@
-import './test.html';
+import './clock.html';
 
 import { ReactiveDict } from 'meteor/reactive-dict';
 
