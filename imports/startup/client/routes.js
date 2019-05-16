@@ -5,7 +5,7 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import '../../ui/layouts/basic/basic.js';
 
 // Import needed templates
-import '../../ui/pages/test/test.js';
+import '../../ui/pages/clock/clock.js';
 
 const publicRoutes = FlowRouter.group({
 	name: 'public',
