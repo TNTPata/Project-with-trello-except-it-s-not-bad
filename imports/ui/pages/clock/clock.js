@@ -29,20 +29,23 @@ Template.Clock.helpers({
 		const hours = Template.instance().state.get('hours');
 		$("#wrapper").attr("class","");
 		
-		if (hours >= "21" || hours > "06") {
-			$("#wrapper").addClass("night");
+		if (hours >= "21") {
+			$("#wrapper").attr("class","nighttime");
+			console.log("NightPicture"); 
+		} else if (hours >= "00" && hours < "06") {
+			$("#wrapper").attr("class","nighttime");
 			console.log("NightPicture"); 
 		} else if (hours >= "06" && hours < "09") {
-			$("#wrapper").addClass("morning");
+			$("#wrapper").attr("class","morning");
 			console.log("MorningPicture"); 
 		} else if (hours >= "09" && hours < "16") {
-			$("#wrapper").addClass("day");
+			$("#wrapper").attr("class","daytime");
 			console.log("DayPicture"); 
 		} else if (hours >= "16" && hours < "21") {
-			$("#wrapper").addClass("evening");
+			$("#wrapper").attr("class","evening");
 			console.log("EveningPicture");
 		} else {
-			console.log("Error. ");
+			console.log("Error. Could not determine what time of day it is. Try thinking for yourself.");
 			return "Er";
 		}
 		
