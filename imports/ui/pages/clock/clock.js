@@ -2,6 +2,9 @@ import './clock.html';
 
 import { ReactiveDict } from 'meteor/reactive-dict';
 
+// Reactive dictionaries automagically update everything related to them
+// when they change themselfes, so there's no point in detecting "onChanged" events
+
 Template.Clock.onCreated(function() {
 	this.state = new ReactiveDict({
 		hours: null,
