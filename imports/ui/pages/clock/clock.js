@@ -19,61 +19,34 @@ Template.Clock.onCreated(function() {
 		self.state.set('minutes', (minutes > 9) ? minutes : '0'+minutes );
 		self.state.set('seconds', (seconds > 9) ? seconds : '0'+seconds );
 	},100);
-	
-	/*Meteor.setInterval(function() {
-		switch(hours) {
-			//Night
-			case (hours >= 21 || hours < 06):
-				break;
-			//Morning
-			case (hours >= 06 && hours < 09):
-				break;
-			//Daytime
-			case (hours >= 09 && hours < 16):
-				break;
-			//Evening
-			case (hours >= 16 && hours < 21):
-				break;
-			default:
-		}
-	},100);*/
 });
 
 Template.Clock.helpers({
 	hours() {
-		return Template.instance().state.get('hours');
+		const hours = Template.instance().state.get('hours');
+		$("#wrapper").attr("class","");
+		
+		if (hours >= "21" || hours > "06") {
+			$("#wrapper").addClass("night");
+			console.log("NightPicture"); 
+		} else if (hours >= "06" && hours < "09") {
+			$("#wrapper").addClass("morning");
+			console.log("MorningPicture"); 
+		} else if (hours >= "09" && hours < "16") {
+			$("#wrapper").addClass("day");
+			console.log("DayPicture"); 
+		} else if (hours >= "16" && hours < "21") {
+			$("#wrapper").addClass("evening");
+			console.log("EveningPicture");
+		} else {
+			console.log("Error. ");
+			return "Er";
+		}
+		
+		return hours;
 	},
 	minutes() {
-		const minutes = Template.instance().state.get('minutes');
-		$("#wrapper").attr("class","");
-		console.log(minutes);
-		
-		//BYT UT TILL IF-SATS!!!!!!!!!!!!!!!!!!!!!!!!!!!
-		switch(minutes) {
-			//Night
-			case "07":
-				console.log(minutes);
-				$("#wrapper").addClass("night");
-				break;
-			//Morning
-			case (minutes >= "15" && minutes < "30"):
-				console.log(minutes);
-				$("#wrapper").addClass("morning");
-				break;
-			//Daytime
-			case (minutes >= "30" && minutes < "45"):
-				console.log(minutes);
-				$("#wrapper").addClass("daytime");
-				break;
-			//Evening
-			case (minutes >= "45" && minutes < "00"):
-				console.log(minutes);
-				$("#wrapper").addClass("evening");
-				break;
-			default:
-				console.log("Default: "+minutes);
-		}
-		return minutes;
+		return Template.instance().state.get('minutes');
 	},
 	seconds() {
 		return Template.instance().state.get('seconds');
