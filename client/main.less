@@ -7,6 +7,46 @@ body,
   width: 100%;
 }
 
+#clockDesktop {
+  //border: 1px solid red;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  font-size: 1500%;
+  text-align: center;
+  width: 1300px;
+}
+#clockTablet {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  font-size: 1400%;
+  text-align: center;
+  width: 1300px;
+}
+
+#clockMobile {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  font-size: 1500%;
+  text-align: center;
+  width: 270px;
+}
+
+#clockMinimal {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  font-size: 1500%;
+  text-align: center;
+  width: 270px;
+}
+
 div#wrapper {
   font-family: sans-serif;
   font-weight: bold;
@@ -22,40 +62,129 @@ div#wrapper {
 
 div#wrapper.nighttime {
   background-image: url("img/nighttime.jpg");
-  
-  transition: background-image 1s ease-in-out;
+  background-position: center;
 }
 
 div#wrapper.morning {
   background-image: url("img/morning.png");
   color: rgba(0, 0, 0, 0.50);
-  
-  transition: background-image 1s ease-in-out;
-  transition: color 1s ease-in-out;
+  background-position: center;
 }
 
 div#wrapper.daytime {
   background-image: url("img/daytime.jpg");
-  
-  transition: background-image 1s ease-in-out;
+  background-position: center;
 }
 
 div#wrapper.evening {
   background-image: url("img/evening.jpg");
+  background-position: center;
+}
+
+/*----------Breakpoints----------*/
+// Full size
+@media only screen and (min-width: 1271px) {
+  div#clockMinimal {
+    display: none;
+  }
   
-  transition: background-image 1s ease-in-out;
+  div#clockMobile {
+    display: none;
+    flex-direction: column;
+  }
+  div#clockTablet {
+    display: none;
+  }
+  div#clockDesktop {
+    display: flex;
+  }
 }
 
-// Rules for 1920x1080 resolution
-#clock {
-  //border: 1px solid red;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: Arial, sans-serif;
-  font-size: 250px;
-  text-align: center;
-  width: 1300px;
+// Compressed full size
+@media only screen and (max-width: 1270px) {
+  div#clockMinimal {
+    display: none;
+  }  
+  
+  div#clockMobile {
+    display: none;
+    flex-direction: column;
+  }
+  div#clockTablet {
+    display: flex;
+  }
+  div#clockDesktop {
+    display: none;
+  }
 }
 
-// Rules for mobile screens
+// Mobile/Smaller than halfscreen
+@media only screen and (max-width: 940px) {
+  div#clockMinimal {
+    display: none;
+  }  
+  
+  div#clockMobile {
+    display: flex;
+    flex-direction: column;
+  }
+  div#clockTablet {
+    display: none;
+  }
+  div#clockDesktop {
+    display: none;
+  }
+  
+  div#wrapper.nighttime {
+    background-image: url("img/nighttimeHalf.jpg");
+  }
+
+  div#wrapper.morning {
+    background-image: url("img/morningHalf.jpg");
+    color: rgba(255, 255, 255, 0.85);
+  } 
+
+  div#wrapper.daytime {
+    background-image: url("img/daytimeHalf.jpg");
+    color: rgba(255, 255, 255, 0.75);
+  } 
+
+  div#wrapper.evening {
+   background-image: url("img/eveningHalf.png");
+  }
+}
+
+// Mobile screens where the seconds don't fit in
+@media only screen and (max-height: 810px) and (max-width: 940px) {
+  div#clockMinimal {
+    display: flex;
+    flex-direction: column;
+  }
+  div#clockMobile {
+    display: none;
+  }
+  div#clockTablet {
+    display: none;
+  }
+  div#clockDesktop {
+    display: none;
+  }
+  
+  div#wrapper.nighttime {
+    background-image: url("img/nighttimeHalf.jpg");
+  }
+
+  div#wrapper.morning {
+    background-image: url("img/morningHalf.jpg");
+    color: rgba(255, 255, 255, 0.85);
+  } 
+
+  div#wrapper.daytime {
+    background-image: url("img/daytimeHalf.jpg");
+    color: rgba(255, 255, 255, 0.75);
+  } 
+
+  div#wrapper.evening {
+   background-image: url("img/eveningHalf.png");
+  }
+}

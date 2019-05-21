@@ -1,5 +1,14 @@
 <template name="Clock">
-	<div id="clock">
+	<div id="clockDesktop">
 		<span>{{hours}}</span>&nbsp;:&nbsp;<span>{{minutes}}</span>&nbsp;:&nbsp;<span>{{seconds}}</span>
+	</div>
+	<div id="clockTablet">
+		<span>{{hours}}</span>:<span>{{minutes}}</span>:<span>{{seconds}}</span>
+	</div>
+	<div id="clockMobile">
+		<span>{{hours}}</span><span>{{minutes}}</span><span>{{seconds}}</span>
+	</div>
+	<div id="clockMinimal">
+		<span>{{hours}}</span><span>{{minutes}}</span>
 	</div>
 </template>
