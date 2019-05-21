@@ -12,6 +12,7 @@ Template.Clock.onCreated(function() {
 		seconds: null,
 	});
 	
+	
 	const self = this;
 	Meteor.setInterval(function() {
 		const time = new Date();
@@ -22,6 +23,8 @@ Template.Clock.onCreated(function() {
 		self.state.set('minutes', (minutes > 9) ? minutes : '0'+minutes );
 		self.state.set('seconds', (seconds > 9) ? seconds : '0'+seconds );
 	},100);
+	// Add a "0" if hours is less than 10
+	// Run 10 times per second to minimise lag between "real" seconds and displayed seconds
 });
 
 Template.Clock.helpers({
